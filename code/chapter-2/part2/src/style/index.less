@@ -1,0 +1,80 @@
+// 设置变量
+@bg-color: #bd74a8;
+
+*{
+  margin: 0;
+  padding: 0;
+  // 改变盒子模型的计算方式
+  box-sizing: border-box;
+}
+
+body{
+  font: bold 20px "Courier"
+}
+
+// 设置主窗口的样式
+#main{
+  width: 360px;
+  height: 420px;
+  background-color: @bg-color;
+  margin: 100px auto;
+  border: 10px solid black;
+  border-radius: 40px;
+
+  // 开启弹性盒模型
+  display: flex;
+  // 设置主轴方向
+  flex-flow: column;
+  // 设置侧轴对其方式
+  align-items: center;
+  // 设置主轴对其方式
+  justify-content: space-around;
+
+  #stage{
+    width: 304px;
+    height: 304px;
+    border: 2px solid black;
+    position: relative;
+
+    // 设置🐍的样式
+    #snake{
+      &>div{
+        width: 10px;
+        height: 10px;
+        background-color: #000;
+        border: 1px solid @bg-color;
+        // 开启绝对定位
+        position: absolute;
+      }
+
+    }
+    // 食物
+    #food{
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      top: 100px;
+      left: 40px;
+      display: flex;
+      // wrap 表示自动换行
+      flex-flow: row wrap;
+      // 设置主轴和侧轴的空白空间分配到元素之间
+      justify-content: space-between;
+      align-content: space-between;
+      &>div{
+        width: 4px;
+        height: 4px;
+        background-color: black;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  #score-panel{
+    width: 304px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+}
+
